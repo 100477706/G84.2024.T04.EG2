@@ -42,9 +42,6 @@ class HotelManager:
             return False
 
 
-
-
-
     def ReaddatafromJSOn( self, fi):
 
         try:
