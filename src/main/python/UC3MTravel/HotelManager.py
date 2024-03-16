@@ -1,11 +1,99 @@
 import json
-from .HotelManagementException import HotelManagementException
-from .HotelReservation import HotelReservation
+from .HotelManagementException import HOTEL_MANAGEMENT_EXCEPTION
+from .HotelReservation import HOTEL_RESERVATION
+from datetime import datetime
 
 
 class HotelManager:
     def __init__(self):
         pass
+    def room_reservation(self,credit_card, name_surname, id_Card, phone_number, room_type, arrival_date, num_days):
+        if self.validatecreditcard(credit_card) == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Tarjeta de crédito no válida")
+        if len(id_Card) != 9 or id_Card[8].isalpha() == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("DNI no válido")
+        for i in range(8):
+            if id_Card[i].isnumeric() == False:
+                raise HOTEL_MANAGEMENT_EXCEPTION("DNI no válido")
+        #NOMBRE
+        if isinstance(name_surname,str) == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
+        if 10 > len(name_surname) or len(name_surname)> 50:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
+        espacio = False
+        for i in name_surname:
+            if i.isalpha() == False and i.isspace() == False:
+                raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
+            if i.isspace():
+                espacio = True
+        if espacio == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
+        #TELÉFONO
+        if isinstance(phone_number, int) == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Número de teléfono no válido")
+        if len(str(phone_number)) != 9:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Número de teléfono no válido")
+        #HABITACIÓN
+        if isinstance(room_type, str) == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Tipo de habitación no válido")
+        if room_type.lower() != "single" and room_type.lower() != "double" and room_type.lower() != "suit":
+            raise HOTEL_MANAGEMENT_EXCEPTION("Tipo de habitación no válido")
+        #NÚMERO DE DÍAS
+        if isinstance(num_days, int) == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Número de días no válido")
+        if num_days < 1 or num_days > 10:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Número de días no válido")
+        #FECHA
+        if len(arrival_date) != 10:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+        for i in range(len(arrival_date)):
+            if (i < 2 or 2 < i < 5 or 5 < i < 10) and arrival_date[i].isnumeric() == False:
+                raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+            if (i == 2 or i == 5) and arrival_date[i] != "/":
+                raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+        if int(arrival_date[0]) == 0 and int(arrival_date[1]) == 0:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+        if int(arrival_date[0]) > 3 or (int(arrival_date[0]) == 3 and int(arrival_date[1]) > 0):
+            raise HOTEL_MANAGEMENT_EXCEPTION('Fecha de llegada no válida')
+        if (int(arrival_date[3]) == 0 and int(arrival_date[4]) == 0) or (int(arrival_date[3]) > 1 or (int(
+                arrival_date[3]) == 1 and int(arrival_date[4]) > 2)):
+            raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] + arrival_date[9]) < datetime.now().year:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] + arrival_date[9]) == datetime.now().year and int(
+                arrival_date[3] + arrival_date[4]) < datetime.now().month:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] + arrival_date[9]) == datetime.now().year and int(
+                arrival_date[3] + arrival_date[4]) == datetime.now().month and int(arrival_date[0] + arrival_date[1])\
+                < datetime.now().day:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+
+        localizador = HOTEL_RESERVATION(id_Card,credit_card,name_surname,phone_number,room_type,num_days)
+
+        archivo = "file_store.json"
+        try:
+            with open(archivo, "r", encoding= "utf-8", newline="") as file:
+                lista_datos = json.load(file)
+        except FileNotFoundError as ex:
+            lista_datos = []
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
+        try:
+            if localizador not in lista_datos:
+                lista_datos.append(localizador.__dict__)
+                with open(archivo, "w", encoding="utf-8", newline="") as file:
+                    json.dump(lista_datos, file, indent=2)
+                print("Reserva realizada")
+            else:
+                print("La reserva coincide con una ya existente")
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("archivo o ruta incorrecta")
+        return localizador.localizer
+
+
+
+
+
 
     def validatecreditcard(self, x):
         # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID
@@ -48,19 +136,20 @@ class HotelManager:
             with open(fi) as f:
                 DATA = json.load(f)
         except FileNotFoundError as e:
-            raise HotelManagementException("Wrong file or file path") from e
+            raise ("Wrong file or file path") from e
         except json.JSONDecodeError as e:
-            raise HotelManagementException("JSON Decode Error - Wrong JSON Format") from e
+            raise HOTEL_MANAGEMENT_EXCEPTION("JSON Decode Error - Wrong JSON Format") from e
 
 
         try:
             c = DATA["CreditCard"]
             p = DATA["phoneNumber"]
-            req = HotelReservation(IDCARD="12345678Z",creditcardNumb=c,nAMeAndSURNAME="John Doe",phonenumber=p,room_type="single",numdays=3)
+            req = HOTEL_RESERVATION(IDCARD="12345678Z",creditcardNumb=c,nAMeAndSURNAME="John Doe",phonenumber=p,room_type="single",
+                    numdays=3)
         except KeyError as e:
-            raise HotelManagementException("JSON Decode Error - Invalid JSON Key") from e
+            raise HOTEL_MANAGEMENT_EXCEPTION("JSON Decode Error - Invalid JSON Key") from e
         if not self.validatecreditcard(c):
-            raise HotelManagementException("Invalid credit card number")
+            raise HOTEL_MANAGEMENT_EXCEPTION("Invalid credit card number")
 
         # Close the file
         return req
