@@ -160,12 +160,11 @@ class TestHotelManager(unittest.TestCase):
         habitacion = HotelManager.HotelManager()
         self.assertEqual(habitacion.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Single",
                                               "01/01/2100", 5), HotelReservation.HOTEL_RESERVATION("11185346D",
-                                                6011111111111117, "Pepe Navarro", 655789987, "Single", 5).localizer)
+                                                6011111111111117, "Pepe Navarro", 655789987, "Single", "01/01/2100", 5).localizer)
         with open("file_store.json", "r", encoding='utf-8', newline="") as file:
             data_list = json.load(file)
         found = False
         for item in data_list:
-            print(item)
             if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
                 found = True
         self.assertTrue(found)
@@ -177,12 +176,12 @@ class TestHotelManager(unittest.TestCase):
         habitacion = HotelManager.HotelManager()
         self.assertEqual(habitacion.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Double",
                                               "01/01/2100", 5), HotelReservation.HOTEL_RESERVATION("11185346D",
-                                                6011111111111117, "Pepe Navarro", 655789987, "Double", 5).localizer)
+                                                6011111111111117, "Pepe Navarro", 655789987, "Double", "01/01/2100",
+                                                                                                   5).localizer)
         with open("file_store.json", "r", encoding='utf-8', newline="") as file:
             data_list = json.load(file)
         found = False
         for item in data_list:
-            print(item)
             if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
                 found = True
         self.assertTrue(found)
@@ -193,13 +192,12 @@ class TestHotelManager(unittest.TestCase):
         habitacion = HotelManager.HotelManager()
         self.assertEqual(habitacion.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Suit",
                                               "01/01/2100", 5), HotelReservation.HOTEL_RESERVATION("11185346D",
-                                                6011111111111117, "Pepe Navarro", 655789987, "Suit", 5).localizer)
+                                                6011111111111117, "Pepe Navarro", 655789987, "Suit", "01/01/2100", 5).localizer)
 
         with open("file_store.json", "r", encoding='utf-8', newline="") as file:
             data_list = json.load(file)
         found = False
         for item in data_list:
-            print(item)
             if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
                 found = True
         self.assertTrue(found)
@@ -296,24 +294,14 @@ class TestHotelManager(unittest.TestCase):
                                    "29/01/2008", 5)
 
     # RESERVA YA EXISTENTE
-    @freeze_time("2024-03-16 17:00:00")
     def test_room_reservation_valid8_1(self):
         os.remove("file_store.json")
-        my_reservation = HotelManager.HotelManager()
-        my_reservation.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Single",
+        manager = HotelManager.HotelManager()
+        manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Single",
                                               "01/01/2100", 5)
-        my_reservation.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Single",
-                                        "01/01/2100", 5)
-
-        with open("file_store.json", "r", encoding='utf-8', newline="") as file:
-            data_list = json.load(file)
-        found = False
-        for item in data_list:
-            print(item)
-            if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
-                found = True
-        self.assertTrue(found)
-
+        with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION):
+            manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Single",
+                                              "01/01/2100", 5)
 
 
     # EJEMPLO CON TODOS LOS DATOS CORRECTOS
@@ -324,13 +312,12 @@ class TestHotelManager(unittest.TestCase):
         reserva = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D", 655789987, "Single",
                                               "01/01/2100", 5)
         self.assertEqual(reserva, HotelReservation.HOTEL_RESERVATION("11185346D",
-                                                6011111111111117, "Pepe Navarro", 655789987, "Single", 5).localizer)
+                                                6011111111111117, "Pepe Navarro", 655789987, "Single", "01/01/2100", 5).localizer)
 
         with open("file_store.json", "r", encoding='utf-8', newline="") as file:
             data_list = json.load(file)
         found = False
         for item in data_list:
-            print(item)
             if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
                 found = True
         self.assertTrue(found)

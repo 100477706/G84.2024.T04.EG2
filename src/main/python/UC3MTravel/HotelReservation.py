@@ -5,11 +5,12 @@ from datetime import datetime
 
 class HOTEL_RESERVATION:
     def __init__(self, id_card, credit_card_numb, name_and_surname, phone_number,
-                 room_type, num_days):
+                 room_type, arrival_date, num_days):
         self.__credit_card_number = credit_card_numb
         self.__id_card = id_card
         justnow = datetime.utcnow()
-        self.__arrival = datetime.timestamp(justnow)
+        self.__reservation_date = datetime.timestamp(justnow)
+        self.__arrival = arrival_date
         self.__name_surname = name_and_surname
         self.__phone_number = phone_number
         self.__room_type = room_type

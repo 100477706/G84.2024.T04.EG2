@@ -7,7 +7,7 @@ from datetime import datetime
 class HotelManager:
     def __init__(self):
         pass
-    def room_reservation(self,credit_card, name_surname, id_Card, phone_number, room_type, arrival_date, num_days):
+    def room_reservation(self,credit_card, name_surname, id_Card, phone_number, room_type, arrival_date: str, num_days):
         if self.validatecreditcard(credit_card) == False:
             raise HOTEL_MANAGEMENT_EXCEPTION("Tarjeta de crédito no válida")
         if len(id_Card) != 9 or id_Card[8].isalpha() == False:
@@ -67,8 +67,8 @@ class HotelManager:
                 arrival_date[3] + arrival_date[4]) == datetime.now().month and int(arrival_date[0] + arrival_date[1])\
                 < datetime.now().day:
             raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
-
-        localizador = HOTEL_RESERVATION(id_Card,credit_card,name_surname,phone_number,room_type,num_days)
+        #LOCALIZADOR
+        reserva = HOTEL_RESERVATION(id_Card,credit_card,name_surname,phone_number,room_type, arrival_date,num_days)
 
         archivo = "file_store.json"
         try:
@@ -79,16 +79,19 @@ class HotelManager:
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
         try:
-            if localizador not in lista_datos:
-                lista_datos.append(localizador.__dict__)
-                with open(archivo, "w", encoding="utf-8", newline="") as file:
-                    json.dump(lista_datos, file, indent=2)
-                print("Reserva realizada")
-            else:
-                print("La reserva coincide con una ya existente")
+            # Compruebo si ya hay en el archivo una reserva de la misma persona el mismo día
+            for item in lista_datos:
+                if item['_HOTEL_RESERVATION__id_card'] == id_Card and item['_HOTEL_RESERVATION__arrival'] == \
+                        arrival_date:
+                    print("reserva ya hecha")
+                    raise HOTEL_MANAGEMENT_EXCEPTION("Reserva ya introducida en el sistema")
+            lista_datos.append(reserva.__dict__)
+            with open(archivo, "w", encoding="utf-8", newline="") as file:
+                json.dump(lista_datos, file, indent=2)
+            print("Reserva realizada")
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("archivo o ruta incorrecta")
-        return localizador.localizer
+        return reserva.localizer
 
 
 
