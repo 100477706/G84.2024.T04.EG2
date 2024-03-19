@@ -184,7 +184,7 @@ bad-names-rgxs=
 
 # Naming style matching correct class attribute names.
 <<<<<<< HEAD
-class-attribute-naming-style=any
+#class-attribute-naming-style=any
 =======
 
 # EL ESTILO DE LOS NOMBRES DE LOS ATRIBUTOS DE LAS CLASES FUE MODIFICADO
@@ -223,7 +223,7 @@ class-naming-style=PascalCase
 
 # EL RGX DE LAS CONSTANTES DE LAS CLASES FUE MODIFICADO
 # REGLA ORIGINAL: class-const-rgx=
-#class-const-rgx=[A-Z_][A-Z0-9_]{1,30}$
+class-const-rgx=[A-Z_][A-Z0-9_]{1,30}$
 
 # Naming style matching correct class names.
 

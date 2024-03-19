@@ -7,21 +7,24 @@ from datetime import datetime
 class HotelManager:
     def __init__(self):
         pass
-    def room_reservation(self,credit_card, name_surname, id_Card, phone_number, room_type, arrival_date: str, num_days):
+
+    def room_reservation(self, credit_card, name_and_surname, id_card, phone_number, room_type,
+                         arrival_date: str, num_days):
+
         if self.validatecreditcard(credit_card) == False:
             raise HOTEL_MANAGEMENT_EXCEPTION("Tarjeta de crédito no válida")
-        if len(id_Card) != 9 or id_Card[8].isalpha() == False:
+        if len(id_card) != 9 or id_card[8].isalpha() == False:
             raise HOTEL_MANAGEMENT_EXCEPTION("DNI no válido")
         for i in range(8):
-            if id_Card[i].isnumeric() == False:
+            if id_card[i].isnumeric() == False:
                 raise HOTEL_MANAGEMENT_EXCEPTION("DNI no válido")
         #NOMBRE
-        if isinstance(name_surname,str) == False:
+        if isinstance(name_and_surname, str) == False:
             raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
-        if 10 > len(name_surname) or len(name_surname)> 50:
+        if 10 > len(name_and_surname) or len(name_and_surname)> 50:
             raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
         espacio = False
-        for i in name_surname:
+        for i in name_and_surname:
             if i.isalpha() == False and i.isspace() == False:
                 raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
             if i.isspace():
@@ -36,7 +39,8 @@ class HotelManager:
         #HABITACIÓN
         if isinstance(room_type, str) == False:
             raise HOTEL_MANAGEMENT_EXCEPTION("Tipo de habitación no válido")
-        if room_type.lower() != "single" and room_type.lower() != "double" and room_type.lower() != "suit":
+        if room_type.lower() != "single" and room_type.lower() != "double" and \
+                room_type.lower() != "suit":
             raise HOTEL_MANAGEMENT_EXCEPTION("Tipo de habitación no válido")
         #NÚMERO DE DÍAS
         if isinstance(num_days, int) == False:
@@ -55,20 +59,26 @@ class HotelManager:
             raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
         if int(arrival_date[0]) > 3 or (int(arrival_date[0]) == 3 and int(arrival_date[1]) > 0):
             raise HOTEL_MANAGEMENT_EXCEPTION('Fecha de llegada no válida')
-        if (int(arrival_date[3]) == 0 and int(arrival_date[4]) == 0) or (int(arrival_date[3]) > 1 or (int(
+        if (int(arrival_date[3]) == 0 and int(arrival_date[4]) == 0) or \
+                (int(arrival_date[3]) > 1 or (int(
                 arrival_date[3]) == 1 and int(arrival_date[4]) > 2)):
             raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
-        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] + arrival_date[9]) < datetime.now().year:
+        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] +
+               arrival_date[9]) < datetime.now().year:
             raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
-        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] + arrival_date[9]) == datetime.now().year and int(
+        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] +
+               arrival_date[9]) == datetime.now().year and int(
                 arrival_date[3] + arrival_date[4]) < datetime.now().month:
             raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
-        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] + arrival_date[9]) == datetime.now().year and int(
-                arrival_date[3] + arrival_date[4]) == datetime.now().month and int(arrival_date[0] + arrival_date[1])\
+        if int(arrival_date[6] + arrival_date[7] + arrival_date[8] +
+               arrival_date[9]) == datetime.now().year and int(
+                arrival_date[3] + arrival_date[4]) == datetime.now().month and \
+                int(arrival_date[0] + arrival_date[1])\
                 < datetime.now().day:
             raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
         #LOCALIZADOR
-        reserva = HOTEL_RESERVATION(id_Card,credit_card,name_surname,phone_number,room_type, arrival_date,num_days)
+        reserva = HOTEL_RESERVATION(id_card, credit_card, name_and_surname, phone_number,
+                                    room_type, arrival_date, num_days)
 
         archivo = "file_store.json"
         try:
@@ -81,7 +91,8 @@ class HotelManager:
         try:
             # Compruebo si ya hay en el archivo una reserva de la misma persona el mismo día
             for item in lista_datos:
-                if item['_HOTEL_RESERVATION__id_card'] == id_Card and item['_HOTEL_RESERVATION__arrival'] == \
+                if item['_HOTEL_RESERVATION__id_card'] == id_card and \
+                        item['_HOTEL_RESERVATION__arrival'] == \
                         arrival_date:
                     print("reserva ya hecha")
                     raise HOTEL_MANAGEMENT_EXCEPTION("Reserva ya introducida en el sistema")
@@ -92,10 +103,6 @@ class HotelManager:
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("archivo o ruta incorrecta")
         return reserva.localizer
-
-
-
-
 
 
     def validatecreditcard(self, x):
@@ -147,8 +154,10 @@ class HotelManager:
         try:
             c = DATA["CreditCard"]
             p = DATA["phoneNumber"]
-            req = HOTEL_RESERVATION(IDCARD="12345678Z",creditcardNumb=c,nAMeAndSURNAME="John Doe",phonenumber=p,room_type="single",
-                    numdays=3)
+            req = HOTEL_RESERVATION(id_card="12345678Z", credit_card_numb=c,
+                                    name_and_surname="John Doe",
+                                    phone_number=p, room_type="single",
+                                    arrival_date = "27/02/2025", num_days=3)
         except KeyError as e:
             raise HOTEL_MANAGEMENT_EXCEPTION("JSON Decode Error - Invalid JSON Key") from e
         if not self.validatecreditcard(c):
