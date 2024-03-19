@@ -260,7 +260,7 @@ docstring-min-length=-1
 
 # Naming style matching correct function names.
 <<<<<<< HEAD
-function-naming-style=snake_case
+#function-naming-style=snake_case
 =======
 
 # EL ESTILO DE LOS NOMBRES DE LAS FUNCIONES FUE MODIFICADO
@@ -298,7 +298,7 @@ inlinevar-naming-style=any
 
 # Naming style matching correct method names.
 <<<<<<< HEAD
-method-naming-style=snake_case
+#method-naming-style=snake_case
 =======
 
 # EL ESTILO DE LOS NOMBRES DE LOS MÉTODOS FUE MODIFICADO
@@ -312,7 +312,7 @@ method-naming-style=PascalCase
 
 # Naming style matching correct module names.
 <<<<<<< HEAD
-module-naming-style=snake_case
+#module-naming-style=snake_case
 =======
 
 # EL ESTILO DE LOS NOMBRES DE LOS MÓDULOS FUE MODIFICADO
