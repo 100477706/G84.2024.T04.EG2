@@ -1,4 +1,6 @@
 import json
+from pathlib import Path
+
 from .HotelManagementException import HOTEL_MANAGEMENT_EXCEPTION
 from .HotelReservation import HOTEL_RESERVATION
 from datetime import datetime
@@ -80,7 +82,8 @@ class HotelManager:
         reserva = HOTEL_RESERVATION(id_card, credit_card, name_and_surname, phone_number,
                                     room_type, arrival_date, num_days)
 
-        archivo = "file_store.json"
+        JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
+        archivo = JSON_FILES_PATH +"file_store.json"
         try:
             with open(archivo, "r", encoding= "utf-8", newline="") as file:
                 lista_datos = json.load(file)
