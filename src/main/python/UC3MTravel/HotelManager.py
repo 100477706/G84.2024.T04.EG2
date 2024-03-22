@@ -78,6 +78,7 @@ class HotelManager:
                 int(arrival_date[0] + arrival_date[1])\
                 < datetime.now().day:
             raise HOTEL_MANAGEMENT_EXCEPTION("Fecha de llegada no válida")
+
         #LOCALIZADOR
         reserva = HOTEL_RESERVATION(id_card, credit_card, name_and_surname, phone_number,
                                     room_type, arrival_date, num_days)
