@@ -84,14 +84,17 @@ class HotelManager:
                                     room_type, arrival_date, num_days)
 
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
-        archivo = JSON_FILES_PATH +"file_store.json"
+        archivo = JSON_FILES_PATH + "file_store.json"
+        ingreso = JSON_FILES_PATH + "store_reservation.json"
+
         try:
-            with open(archivo, "r", encoding= "utf-8", newline="") as file:
+            with open(archivo, "r", encoding="utf-8", newline="") as file:
                 lista_datos = json.load(file)
         except FileNotFoundError as ex:
             lista_datos = []
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
+
         try:
             # Compruebo si ya hay en el archivo una reserva de la misma persona el mismo día
             for item in lista_datos:
@@ -100,13 +103,71 @@ class HotelManager:
                         arrival_date:
                     print("reserva ya hecha")
                     raise HOTEL_MANAGEMENT_EXCEPTION("Reserva ya introducida en el sistema")
+
             lista_datos.append(reserva.__dict__)
+
             with open(archivo, "w", encoding="utf-8", newline="") as file:
                 json.dump(lista_datos, file, indent=2)
             print("Reserva realizada")
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("archivo o ruta incorrecta")
+
+        with open(archivo, "r", encoding="utf-8", newline="") as archivo_ing:
+            datos = json.load(archivo_ing)
+
+            lista_ingreso = []
+            for persona in datos:
+                lista_ingreso.append({
+                    'Localizer': persona['_HOTEL_RESERVATION__localizer'],
+                    'IdCard': persona['_HOTEL_RESERVATION__id_card']
+                })
+
+        with open(ingreso, "w", encoding="utf-8", newline="") as file:
+            json.dump(lista_ingreso, file, indent=2)
+
         return reserva.localizer
+
+
+
+############
+#SEGUNDA FUNCIÓN
+    def guest_arrival(self, input_file):
+        print(input_file)
+        JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
+        archivo = JSON_FILES_PATH + "file_store.json"
+
+        try:
+            with open(archivo, "r", encoding="utf-8", newline="") as file1:
+                datos_reserva = json.load(file1)
+        except FileNotFoundError as ex:
+            datos_reserva = []
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
+
+        try:
+            with open(input_file, "r", encoding="utf-8", newline="") as file2:
+                datos_input = json.load(file2)
+        except FileNotFoundError as ex:
+            datos_input = []
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
+
+        try:
+            lista_ingreso = []
+            lista_reserva = []
+
+            for items1 in datos_input:
+                lista_ingreso.append(items1['Localizer'])
+            for items2 in datos_reserva:
+                lista_reserva.append(items2['_HOTEL_RESERVATION__localizer'])
+            print(lista_reserva[0])
+            print(lista_ingreso[0])
+
+            if lista_reserva[0] != lista_ingreso[0]:
+                raise HOTEL_MANAGEMENT_EXCEPTION("El localizador no coincide")
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
+
 
 
     def validatecreditcard(self, x):
