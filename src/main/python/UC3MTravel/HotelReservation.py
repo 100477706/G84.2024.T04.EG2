@@ -9,7 +9,7 @@ class HOTEL_RESERVATION:
         self.__credit_card_number = credit_card_numb
         self.__id_card = id_card
         justnow = datetime.utcnow()
-        self.__reservation_date = datetime.timestamp(justnow)
+        self.__reservation_date = (datetime.timestamp(justnow))
         self.__arrival = arrival_date
         self.__name_surname = name_and_surname
         self.__phone_number = phone_number

@@ -10,16 +10,19 @@ class HOTEL_STAY:
         self.__idcard = id_card
         self.__localizer = localizer
         justnow = datetime.utcnow()
-        self.__arrival = justnow
+        self.__arrival = justnow.strftime('%d/%m/%Y %H:%M')
         # timestamp is represented in seconds.miliseconds
         # to add the number of days we must express numdays in seconds
-        self.__departure = self.__arrival + (num_days * 24 * 60 * 60)
+        self.__departure = datetime.utcfromtimestamp(datetime.timestamp(justnow) +\
+                                                     (num_days * 24 * 60 * 60)).strftime(
+            '%d/%m/%Y %H:%M')
+        self.__room_key = hashlib.sha256(self.SignatureString().encode()).hexdigest()
 
     def SignatureString(self):
         """Composes the string to be used for generating the key for the room"""
         return "{alg:" + self.__alg + ",typ:" + self.__type + ",localizer:" + \
             self.__localizer + ",arrival:" + self.__arrival + \
-            ",departure:" + self.__departure + "}"
+            ",departure:" + self.__departure+ "}"
 
     @property
     def id_card(self):
@@ -47,7 +50,7 @@ class HOTEL_STAY:
     @property
     def room_key(self):
         """Returns the sha256 signature of the date"""
-        return hashlib.sha256(self.SignatureString().encode()).hexdigest()
+        return self.__room_key
 
     @property
     def departure(self):

@@ -4,6 +4,7 @@ from pathlib import Path
 from .HotelManagementException import HOTEL_MANAGEMENT_EXCEPTION
 from .HotelReservation import HOTEL_RESERVATION
 from datetime import datetime
+from .HotelStay import HOTEL_STAY
 
 
 class HotelManager:
@@ -85,7 +86,6 @@ class HotelManager:
 
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
         archivo = JSON_FILES_PATH + "file_store.json"
-        ingreso = JSON_FILES_PATH + "store_reservation.json"
 
         try:
             with open(archivo, "r", encoding="utf-8", newline="") as file:
@@ -110,17 +110,6 @@ class HotelManager:
             print("Reserva realizada")
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
-
-        with open(archivo, "r", encoding="utf-8", newline="") as archivo_ing:
-            datos = json.load(archivo_ing)
-
-            dic_ingreso = {}
-            for persona in datos:
-                dic_ingreso.update({'Localizer': persona['_HOTEL_RESERVATION__localizer'],
-                                    'IdCard': persona['_HOTEL_RESERVATION__id_card']})
-
-        with open(ingreso, "w", encoding="utf-8", newline="") as file:
-            json.dump(dic_ingreso, file, indent=2)
 
         return reserva.localizer
 
@@ -156,11 +145,15 @@ class HotelManager:
 
             for items1 in datos_input:
                 lista_ingreso.append(datos_input.get('Localizer'))
+                lista_ingreso.append(datos_input.get('IdCard'))
             for items2 in datos_reserva:
                 lista_reserva.append(items2['_HOTEL_RESERVATION__localizer'])
+                lista_reserva.append(items2['_HOTEL_RESERVATION__id_card'])
 
             if lista_reserva[0] != lista_ingreso[0]:
-                raise HOTEL_MANAGEMENT_EXCEPTION("El localizador no coincide")
+                raise HOTEL_MANAGEMENT_EXCEPTION("El Localizador no coincide")
+            if lista_reserva[1] != lista_ingreso[1]:
+                raise HOTEL_MANAGEMENT_EXCEPTION("El IdCard no coincide")
 
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
@@ -278,6 +271,61 @@ class HotelManager:
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
+        # Con esta lista añadimos los elementos a una lista, luego los extraemos de la misma para
+        # poder manipularlos al momento de llamar a HotelStay
+        lista_arrival = []
+        id_card = datos_input.get('IdCard')
+        localizer = datos_input.get('Localizer')
+        for items in datos_reserva:
+            lista_arrival.append(items['_HOTEL_RESERVATION__num_days'])
+            lista_arrival.append(items['_HOTEL_RESERVATION__room_type'])
+            lista_arrival.append(items['_HOTEL_RESERVATION__arrival'])
+        num_days = lista_arrival[0]
+        room_type = lista_arrival[1]
+
+        ingreso = HOTEL_STAY(id_card, localizer, num_days, room_type)
+        JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
+        arrival = JSON_FILES_PATH + "store_arrival.json"
+
+        try:
+            with open(arrival, "r", encoding="utf-8", newline="") as file:
+                lista_datos = json.load(file)
+        except FileNotFoundError as ex:
+            lista_datos = []
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
+
+        try:
+            # Compruebo si ya hay en el archivo ya hay una room_key de la misma persona
+            for item in lista_datos:
+                if item['_HOTEL_RESERVATION__id_card'] == id_card and \
+                        item['_HOTEL_RESERVATION__localizer'] == \
+                        localizer:
+                    raise HOTEL_MANAGEMENT_EXCEPTION("Room Key ya existente")
+
+            lista_datos.append(ingreso.__dict__)
+
+            # Antes de escribir sobre el documento, verificamos que la fecha de llegada de
+            # HotelStay se corresponda con la fecha registrada en HotelReservation
+            dato_stay_arrival = str
+            dato_reserva_arrival = str
+            for dato1 in lista_datos:
+                dato_stay_arrival = dato1['_HOTEL_STAY__arrival']
+            for dato2 in datos_reserva:
+                dato_reserva_arrival = dato2['_HOTEL_RESERVATION__arrival']
+
+            if dato_stay_arrival[:10] != dato_reserva_arrival:
+                raise HOTEL_MANAGEMENT_EXCEPTION("La fecha de llegada no coincide con la del "
+                                                 "fichero de reserva")
+
+
+            with open(arrival, "w", encoding="utf-8", newline="") as file:
+                json.dump(lista_datos, file, indent=2)
+            print("Room Key generada")
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
+
+        return ingreso.room_key
 
     def validatecreditcard(self, x):
         # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID

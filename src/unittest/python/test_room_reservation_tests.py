@@ -948,11 +948,8 @@ class TestRoomReservation(unittest.TestCase):
     def test_room_reservation_valid3(self):
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
         archivo = JSON_FILES_PATH + "file_store.json"
-        ingreso = JSON_FILES_PATH + "store_reservation.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        if os.path.isfile(ingreso):
-            os.remove(ingreso)
         manager = HotelManager.HotelManager()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
@@ -966,8 +963,6 @@ class TestRoomReservation(unittest.TestCase):
             if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
                 found = True
         self.assertTrue(found)
-
-        habitacion = manager.guest_arrival(ingreso)
 
 if __name__ == '__main__':
     unittest.main()

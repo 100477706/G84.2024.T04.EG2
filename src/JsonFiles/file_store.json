@@ -3,11 +3,11 @@
     "_HOTEL_RESERVATION__credit_card_number": 6011111111111117,
     "_HOTEL_RESERVATION__id_card": "11185346D",
     "_HOTEL_RESERVATION__reservation_date": 1710608400.0,
-    "_HOTEL_RESERVATION__arrival": "01/01/2100",
+    "_HOTEL_RESERVATION__arrival": "16/03/2024",
     "_HOTEL_RESERVATION__name_surname": "Pepe Navarro",
     "_HOTEL_RESERVATION__phone_number": 655789987,
     "_HOTEL_RESERVATION__room_type": "Single",
     "_HOTEL_RESERVATION__num_days": 5,
-    "_HOTEL_RESERVATION__localizer": "4dcfe23cc26a2c294312a1ad446001a8"
+    "_HOTEL_RESERVATION__localizer": "7532a04bf679689f4156228d60c542e4"
   }
 ]

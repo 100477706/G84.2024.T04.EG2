@@ -1,0 +1,11 @@
+[
+  {
+    "_HOTEL_STAY__alg": "SHA-256",
+    "_HOTEL_STAY__type": "Single",
+    "_HOTEL_STAY__idcard": "11185346D",
+    "_HOTEL_STAY__localizer": "7532a04bf679689f4156228d60c542e4",
+    "_HOTEL_STAY__arrival": "16/03/2024 17:00",
+    "_HOTEL_STAY__departure": "21/03/2024 17:00",
+    "_HOTEL_STAY__room_key": "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
+  }
+]
