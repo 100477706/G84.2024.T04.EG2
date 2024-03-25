@@ -13,7 +13,7 @@ from UC3MTravel import HotelReservation
 from freezegun import freeze_time
 
 
-class TestHotelManager(unittest.TestCase):
+class TestRoomReservation(unittest.TestCase):
     # TARJETA CON 16 DÍGITOS QUE NO CUMPLE EL ALGORITMO DE LUHN
     def test_room_reservation_valid1(self):
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"

@@ -23,7 +23,7 @@ class HotelManager:
         #NOMBRE
         if isinstance(name_and_surname, str) == False:
             raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
-        if 10 > len(name_and_surname) or len(name_and_surname)> 50:
+        if 10 > len(name_and_surname) or len(name_and_surname) > 50:
             raise HOTEL_MANAGEMENT_EXCEPTION("Nombre no válido")
         espacio = False
         for i in name_and_surname:
@@ -101,7 +101,6 @@ class HotelManager:
                 if item['_HOTEL_RESERVATION__id_card'] == id_card and \
                         item['_HOTEL_RESERVATION__arrival'] == \
                         arrival_date:
-                    print("reserva ya hecha")
                     raise HOTEL_MANAGEMENT_EXCEPTION("Reserva ya introducida en el sistema")
 
             lista_datos.append(reserva.__dict__)
@@ -110,20 +109,18 @@ class HotelManager:
                 json.dump(lista_datos, file, indent=2)
             print("Reserva realizada")
         except FileNotFoundError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("archivo o ruta incorrecta")
+            raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
 
         with open(archivo, "r", encoding="utf-8", newline="") as archivo_ing:
             datos = json.load(archivo_ing)
 
-            lista_ingreso = []
+            dic_ingreso = {}
             for persona in datos:
-                lista_ingreso.append({
-                    'Localizer': persona['_HOTEL_RESERVATION__localizer'],
-                    'IdCard': persona['_HOTEL_RESERVATION__id_card']
-                })
+                dic_ingreso.update({'Localizer': persona['_HOTEL_RESERVATION__localizer'],
+                                    'IdCard': persona['_HOTEL_RESERVATION__id_card']})
 
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
-            json.dump(lista_ingreso, file, indent=2)
+            json.dump(dic_ingreso, file, indent=2)
 
         return reserva.localizer
 
@@ -152,22 +149,134 @@ class HotelManager:
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
 
+        # CON ESTO SE PRUEBA QUE EL LOCALIZER DEL JSON FILE INPUT COINCIDA CON EL GENERADO EN LA RF1
         try:
             lista_ingreso = []
             lista_reserva = []
 
             for items1 in datos_input:
-                lista_ingreso.append(items1['Localizer'])
+                lista_ingreso.append(datos_input.get('Localizer'))
             for items2 in datos_reserva:
                 lista_reserva.append(items2['_HOTEL_RESERVATION__localizer'])
-            print(lista_reserva[0])
-            print(lista_ingreso[0])
 
             if lista_reserva[0] != lista_ingreso[0]:
                 raise HOTEL_MANAGEMENT_EXCEPTION("El localizador no coincide")
+
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
+
+        try:
+            with open(input_file, "rb") as file:
+                element = file.read(1)
+                count = 0
+
+                while element:
+                    # SE VERIFICA QUE EL PRIMER BYTE SEA UNA '{'
+                    if count == 0:
+                        if element != b'{':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA QUE EL SEGUNDO, QUINCAGÉSIMO TERCER Y SEPTUAGÉSIMO SÉPTIMO BYTE
+                    # SEA UN '\n'
+                    if (count == 1) or (count == 52) or (count == 76):
+                        if element != b'\n':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA QUE EL TERCER, CUARTO, DÉCIMO SÉPTIMO, QUINCAGÉSIMO CUARTO,
+                    # QUINCAGÉSIMO QUINTO Y SEXAGÉSIMO QUINTO BYTE SON UN ESPACIO EN BLANCO
+                    if ((count == 2) or (count == 3) or (count == 16) or (count == 53) or
+                            (count == 54) or (count == 64)):
+                        if element != b' ':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA QUE EL QUINTO, DÉCIMO QUINTO, DÉCIMO OCTAVO, QUINCAGÉSIMO
+                    # PRIMERO, QUINCAGÉSIMO SEXTO, SEXAGÉSIMO TERCERO, SEXAGÉSIMO SEXTO Y
+                    # SEPTUAGÉSIMO SEXTO BYTE SON UNAS COMILLAS
+                    if ((count == 4) or (count == 14) or (count == 17) or (count == 50) or
+                            (count == 55) or (count == 62) or (count == 65) or (count == 75)):
+                        if element != b'"':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+                        else:
+                            if count == 4:
+                                # SABEMOS QUE DESPUÉS DEL CUARTO BYTE VIENE "LOCALIZER",
+                                # POR LO QUE LA LEEMOS COMO UN SOLO BYTE
+                                element = file.read(9)
+                                count = count + 9
+
+                            if count == 17:
+                                # SABEMOS QUE DESPUÉS DEL DÉCIMO SÉPTIMO BYTE VIENE EL VALOR,
+                                # HEXADECIMAL DE LOCALIZER, POR LO QUE LA LEEMOS COMO UN SOLO BYTE
+                                element = file.read(32)
+                                count = count + 32
+
+                            if count == 55:
+                                # SABEMOS QUE DESPUÉS DEL QUINCAGÉSIMO SEXTO BYTE VIENE "IDCARD",
+                                # POR LO QUE LA LEEMOS COMO UN SOLO BYTE
+                                element = file.read(6)
+                                count = count + 6
+
+                            if count == 65:
+                                # SABEMOS QUE DESPUÉS DEL SEXAGÉSIMO SEXTO BYTE VIENE EL VALOR DE
+                                # IDCARD,
+                                # POR LO QUE LA LEEMOS COMO UN SOLO BYTE (NO CONTAMOS LA LETRA)
+                                element = file.read(8)
+                                count = count + 8
+
+
+                    # SE VERIFICA QUE EL DÉCIMO SEXTO Y EL SEXAGÉSIMO CUARTO BYTE SON UNOS DOS
+                    # PUNTOS ':'
+                    if (count == 15) or (count == 63):
+                        if element != b':':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA QUE EL QUINCAGÉSIMO TERCER BYTE ES UNA COMA:'
+                    if count == 51:
+                        if element != b',':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA QUE EL LOCALIZER ESTÁ DONDE DEBE Y SI ESTÁ BIEN ESCRITO
+                    if count == 13:
+                        if element != b'Localizer':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA QUE EL IDCARD ESTÁ DONDE DEBE Y SI ESTÁ BIEN ESCRITO
+                    if count == 61:
+                        if element != b'IdCard':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA QUE EL ÚLTIMO BYTE SEA UNA '}'
+                    if count == 77:
+                        if element != b'}':
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA LA ESTRUCTURA DEL VALOR DE IDCARD'
+                    if count == 73:
+                        dni = ''.join(map(str, element))
+                        for i in range(8):
+                            if dni[i].isnumeric() == False:
+                                raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    if count == 74:
+                        caracter = element.decode('utf-8')
+                        if isinstance(caracter, str) == False:
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    # SE VERIFICA LA ESTRUCTURA DEL LOCALIZER SEA CORRECTA'
+                    if count == 49:
+                        caracter = element.decode('utf-8')
+                        if self.es_hexadecimal(caracter) == False:
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+                    count = count + 1
+                    element = file.read(1)
+
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
 
     def validatecreditcard(self, x):
@@ -205,7 +314,7 @@ class HotelManager:
             return False
 
 
-    def ReaddatafromJSOn( self, fi):
+    def ReaddatafromJSOn(self, fi):
 
         try:
             with open(fi) as f:
@@ -230,3 +339,6 @@ class HotelManager:
 
         # Close the file
         return req
+
+    def es_hexadecimal(self, cadena):
+        return all(caracter.isdigit() or caracter.lower() in 'abcdef' for caracter in cadena)
