@@ -118,7 +118,6 @@ class HotelManager:
 ############
 #SEGUNDA FUNCIÓN
     def guest_arrival(self, input_file):
-        print(input_file)
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
         archivo = JSON_FILES_PATH + "file_store.json"
 
@@ -128,35 +127,13 @@ class HotelManager:
         except FileNotFoundError as ex:
             datos_reserva = []
         except json.JSONDecodeError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
         try:
             with open(input_file, "r", encoding="utf-8", newline="") as file2:
                 datos_input = json.load(file2)
         except FileNotFoundError as ex:
             datos_input = []
-        except json.JSONDecodeError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
-
-        # CON ESTO SE PRUEBA QUE EL LOCALIZER DEL JSON FILE INPUT COINCIDA CON EL GENERADO EN LA RF1
-        try:
-            lista_ingreso = []
-            lista_reserva = []
-
-            for items1 in datos_input:
-                lista_ingreso.append(datos_input.get('Localizer'))
-                lista_ingreso.append(datos_input.get('IdCard'))
-            for items2 in datos_reserva:
-                lista_reserva.append(items2['_HOTEL_RESERVATION__localizer'])
-                lista_reserva.append(items2['_HOTEL_RESERVATION__id_card'])
-
-            if lista_reserva[0] != lista_ingreso[0]:
-                raise HOTEL_MANAGEMENT_EXCEPTION("El Localizador no coincide")
-            if lista_reserva[1] != lista_ingreso[1]:
-                raise HOTEL_MANAGEMENT_EXCEPTION("El IdCard no coincide")
-
-        except FileNotFoundError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
@@ -271,6 +248,29 @@ class HotelManager:
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
+        # CON ESTO SE PRUEBA QUE EL LOCALIZER DEL JSON FILE INPUT COINCIDA CON EL GENERADO EN LA RF1
+        try:
+            lista_ingreso = []
+            lista_reserva = []
+
+            for items1 in datos_input:
+                lista_ingreso.append(datos_input.get('Localizer'))
+                lista_ingreso.append(datos_input.get('IdCard'))
+            for items2 in datos_reserva:
+                lista_reserva.append(items2['_HOTEL_RESERVATION__localizer'])
+                lista_reserva.append(items2['_HOTEL_RESERVATION__id_card'])
+
+            if (len(lista_reserva) > 0) and (len(lista_ingreso) > 0):
+                if lista_reserva[0] != lista_ingreso[0]:
+                    raise HOTEL_MANAGEMENT_EXCEPTION("El Localizador no coincide")
+                if lista_reserva[1] != lista_ingreso[1]:
+                    raise HOTEL_MANAGEMENT_EXCEPTION("El IdCard no coincide")
+
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
         # Con esta lista añadimos los elementos a una lista, luego los extraemos de la misma para
         # poder manipularlos al momento de llamar a HotelStay
         lista_arrival = []
@@ -326,6 +326,11 @@ class HotelManager:
             raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
 
         return ingreso.room_key
+
+
+
+    ######
+    # TERCERA FUNCIÓN
 
     def validatecreditcard(self, x):
         # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID
