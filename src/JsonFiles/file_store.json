@@ -1,6 +1,17 @@
 [
   {
     "_HOTEL_RESERVATION__credit_card_number": 6011111111111117,
+    "_HOTEL_RESERVATION__id_card": "12345678D",
+    "_HOTEL_RESERVATION__reservation_date": 1710608400.0,
+    "_HOTEL_RESERVATION__arrival": "16/03/2024",
+    "_HOTEL_RESERVATION__name_surname": "Gabriel Rivera",
+    "_HOTEL_RESERVATION__phone_number": 613589749,
+    "_HOTEL_RESERVATION__room_type": "Single",
+    "_HOTEL_RESERVATION__num_days": 1,
+    "_HOTEL_RESERVATION__localizer": "4bf065d059cc321d647d8e24528c2fb3"
+  },
+  {
+    "_HOTEL_RESERVATION__credit_card_number": 6011111111111117,
     "_HOTEL_RESERVATION__id_card": "11185346D",
     "_HOTEL_RESERVATION__reservation_date": 1710608400.0,
     "_HOTEL_RESERVATION__arrival": "16/03/2024",

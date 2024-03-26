@@ -1973,16 +1973,16 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HotelManager.HotelManager()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
-                                            655789987,
-                                            "Single", "16/03/2024", 5)
-        self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
+        reserva1 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678D",
+                                            613589749,
+                                            "Single", "16/03/2024", 1)
+        self.assertEqual(reserva1, "4bf065d059cc321d647d8e24528c2fb3")
 
         with open(archivo, "r", encoding='utf-8', newline="") as file:
             data_list = json.load(file)
         found = False
         for item in data_list:
-            if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
+            if item['_HOTEL_RESERVATION__id_card'] == "12345678D":
                 found = True
         self.assertTrue(found)
 
@@ -2004,16 +2004,16 @@ class TestGuestArrival(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        reserva2 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678D",
-                                            613589749,
+        reserva2 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+                                            655789987,
                                             "Single", "16/03/2024", 5)
-        self.assertEqual(reserva2, "887314ae7d1a5fe6500b67ca095c5f8d")
+        self.assertEqual(reserva2, "7532a04bf679689f4156228d60c542e4")
 
         with open(archivo, "r", encoding='utf-8', newline="") as file:
             data_list = json.load(file)
         found = False
         for item in data_list:
-            if item['_HOTEL_RESERVATION__id_card'] == "12345678D":
+            if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
                 found = True
         self.assertTrue(found)
 

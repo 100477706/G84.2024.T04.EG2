@@ -259,19 +259,30 @@ class HotelManager:
 
             localizer = datos_input.get('Localizer')
             id_card = datos_input.get('IdCard')
-            for items2 in datos_reserva:
-                lista_reserva.append(items2['_HOTEL_RESERVATION__localizer'])
-                lista_reserva.append(items2['_HOTEL_RESERVATION__id_card'])
+            for items in datos_reserva:
+                lista_reserva.append(items['_HOTEL_RESERVATION__localizer'])
+                lista_reserva.append(items['_HOTEL_RESERVATION__id_card'])
+                lista_reserva.append(items['_HOTEL_RESERVATION__num_days'])
+                lista_reserva.append(items['_HOTEL_RESERVATION__room_type'])
+                lista_reserva.append(items['_HOTEL_RESERVATION__arrival'])
+
+            #Inicializamos las variables que usaremos
+            # Si localizer y id_card coincide con lo que tenemos en el input, entonces colocamos
+            # valores a num_days, room_type y a arrival
+            num_days = int
+            room_type = str
+            dato_reserva_arrival = str
 
             if len(lista_reserva) > 0:
                 comprobacion = False
-                j = 1
-                for i in range(len(lista_reserva)):
-                    if lista_reserva[i] == localizer:
-                        if lista_reserva[j] == id_card:
+                for j in range(len(lista_reserva)):
+                    if lista_reserva[j] == localizer:
+                        if lista_reserva[j+1] == id_card:
                             comprobacion = True
-                i += 2
-                j += 2
+                            num_days = lista_reserva[j+2]
+                            room_type = lista_reserva[j+3]
+                            dato_reserva_arrival = lista_reserva[j+4]
+                    j += 4
 
                 if comprobacion == False:
                     raise HOTEL_MANAGEMENT_EXCEPTION("El IdCard o el Localizer no coincide")
@@ -281,17 +292,6 @@ class HotelManager:
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
-        # Con esta lista añadimos los elementos a una lista, luego los extraemos de la misma para
-        # poder manipularlos al momento de llamar a HotelStay
-        lista_arrival = []
-        id_card = datos_input.get('IdCard')
-        localizer = datos_input.get('Localizer')
-        for items in datos_reserva:
-            lista_arrival.append(items['_HOTEL_RESERVATION__num_days'])
-            lista_arrival.append(items['_HOTEL_RESERVATION__room_type'])
-            lista_arrival.append(items['_HOTEL_RESERVATION__arrival'])
-        num_days = lista_arrival[0]
-        room_type = lista_arrival[1]
 
         ingreso = HOTEL_STAY(id_card, localizer, num_days, room_type)
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
@@ -318,12 +318,12 @@ class HotelManager:
             # Antes de escribir sobre el documento, verificamos que la fecha de llegada de
             # HotelStay se corresponda con la fecha registrada en HotelReservation
             dato_stay_arrival = str
-            dato_reserva_arrival = str
+
             for dato1 in lista_datos:
                 dato_stay_arrival = dato1['_HOTEL_STAY__arrival']
-            for dato2 in datos_reserva:
-                dato_reserva_arrival = dato2['_HOTEL_RESERVATION__arrival']
 
+            #Comparamos el dato del día de llegada de la reserva con el dato extraído en el área
+            # de comprobación del localizer y del id_card
             if dato_stay_arrival[:10] != dato_reserva_arrival:
                 raise HOTEL_MANAGEMENT_EXCEPTION("La fecha de llegada no coincide con la del "
                                                  "fichero de reserva")
