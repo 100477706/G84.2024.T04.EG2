@@ -255,21 +255,26 @@ class HotelManager:
 
         # CON ESTO SE PRUEBA QUE EL LOCALIZER DEL JSON FILE INPUT COINCIDA CON EL GENERADO EN LA RF1
         try:
-            lista_ingreso = []
             lista_reserva = []
 
-            for items1 in datos_input:
-                lista_ingreso.append(datos_input.get('Localizer'))
-                lista_ingreso.append(datos_input.get('IdCard'))
+            localizer = datos_input.get('Localizer')
+            id_card = datos_input.get('IdCard')
             for items2 in datos_reserva:
                 lista_reserva.append(items2['_HOTEL_RESERVATION__localizer'])
                 lista_reserva.append(items2['_HOTEL_RESERVATION__id_card'])
 
-            if (len(lista_reserva) > 0) and (len(lista_ingreso) > 0):
-                if lista_reserva[0] != lista_ingreso[0]:
-                    raise HOTEL_MANAGEMENT_EXCEPTION("El Localizador no coincide")
-                if lista_reserva[1] != lista_ingreso[1]:
-                    raise HOTEL_MANAGEMENT_EXCEPTION("El IdCard no coincide")
+            if len(lista_reserva) > 0:
+                comprobacion = False
+                j = 1
+                for i in range(len(lista_reserva)):
+                    if lista_reserva[i] == localizer:
+                        if lista_reserva[j] == id_card:
+                            comprobacion = True
+                i += 2
+                j += 2
+
+                if comprobacion == False:
+                    raise HOTEL_MANAGEMENT_EXCEPTION("El IdCard o el Localizer no coincide")
 
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
