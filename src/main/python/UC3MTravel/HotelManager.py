@@ -336,6 +336,71 @@ class HotelManager:
 
     ######
     # TERCERA FUNCIÓN
+    def guest_checkout(self, room_key):
+        #Esta función debe devolver TRUE si la hora de salida es igual a la programada y si la clave es válida.
+        #Primero compruebo que se encuentra store_arrival
+        JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
+        archivo = JSON_FILES_PATH + "store_stay.json"
+
+        try:
+            with open(archivo, "r", encoding="utf-8", newline="") as archivo1:
+                datos_llegada = json.load(archivo1)
+        except FileNotFoundError as ex:
+            datos_llegada = []
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+        #ahora compruebo que room_key es hexadecimal
+        if self.es_hexadecimal(room_key) == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("FORMATO DE ROOM_KEY INCORRECTO")
+        #Formato correcto, ahora vamos a ver si la room_key es correcta. Para ello, usaremos el mismo método
+        #que el usado en la función 2
+        try:
+            aux = ""
+            for element in datos_llegada:
+                aux = element["_HOTEL_STAY__room_key"]
+            if aux != room_key:
+                raise HOTEL_MANAGEMENT_EXCEPTION("ROOM KEY NO COINCIDE")
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("ARCHIVO O RUTA INCORRECTO")
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+        #room_key está en el almacén. Ahora vamos a comprobar que la fecha de hoy se corresponde
+        #con la fecha de salida registrada en el almacén
+        try:
+            current_datetime = str(datetime.utcnow())
+            departure_date = ""
+            for dato in datos_llegada:
+                departure_date = dato["_HOTEL_STAY__departure"]
+            if current_datetime[:10] != departure_date[:10]:
+                raise HOTEL_MANAGEMENT_EXCEPTION("FECHA DE SALIDA NO VÁLIDA")
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("ARCHIVO O RUTA INCORRECTO")
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+        #Ahora solo queda generar el almacén para guardar la hora de salida y la room key
+        JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
+        checkout = JSON_FILES_PATH + "guest_checkout.json"
+        try:
+            with open(checkout, "r", encoding="utf-8", newline="") as salida:
+                datos_checkout = json.load(salida)
+        except FileNotFoundError as ex:
+            datos_checkout = []
+        except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+
+        try:
+            datos_checkout.append(current_datetime)
+            datos_checkout.append(room_key)
+            with open(checkout, "w", encoding="utf-8", newline="") as file:
+                json.dump(datos_checkout, file, indent=2)
+            print("checkout generado")
+        except FileNotFoundError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
+
+        return True
+
+
 
     def validatecreditcard(self, x):
         # PLEASE INCLUDE HERE THE CODE FOR VALIDATING THE GUID
