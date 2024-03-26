@@ -224,7 +224,10 @@ class HotelManager:
 
                     # SE VERIFICA LA ESTRUCTURA DEL VALOR DE IDCARD'
                     if count == 73:
+                        comprobacion = int(element)
                         dni = ''.join(map(str, element))
+                        if len(dni) < 8:
+                            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
                         for i in range(8):
                             if dni[i].isnumeric() == False:
                                 raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
@@ -246,6 +249,8 @@ class HotelManager:
         except FileNotFoundError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("Archivo o ruta incorrecta")
         except json.JSONDecodeError as ex:
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
+        except ValueError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
         # CON ESTO SE PRUEBA QUE EL LOCALIZER DEL JSON FILE INPUT COINCIDA CON EL GENERADO EN LA RF1
@@ -285,7 +290,7 @@ class HotelManager:
 
         ingreso = HOTEL_STAY(id_card, localizer, num_days, room_type)
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
-        arrival = JSON_FILES_PATH + "store_arrival.json"
+        arrival = JSON_FILES_PATH + "store_stay.json"
 
         try:
             with open(arrival, "r", encoding="utf-8", newline="") as file:
@@ -293,7 +298,7 @@ class HotelManager:
         except FileNotFoundError as ex:
             lista_datos = []
         except json.JSONDecodeError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("ERROR JSON")
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
         try:
             # Compruebo si ya hay en el archivo ya hay una room_key de la misma persona
