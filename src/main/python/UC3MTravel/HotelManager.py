@@ -387,17 +387,22 @@ class HotelManager:
         #Ahora solo queda generar el almacén para guardar la hora de salida y la room key
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
         checkout = JSON_FILES_PATH + "guest_checkout.json"
+
+        dic_checkout = {}
+        for cliente in datos_llegada:
+            dic_checkout.update({'_CHECKOUT__room_key': cliente["_HOTEL_STAY__room_key"],
+                                 '_CHECKOUT__departure_time': current_datetime})
         try:
-            with open(checkout, "r", encoding="utf-8", newline="") as salida:
-                datos_checkout = json.load(salida)
+            with open(checkout, "r", encoding="utf-8", newline="") as archivo1:
+                datos_checkout = json.load(archivo1)
         except FileNotFoundError as ex:
             datos_checkout = []
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
+        datos_checkout.append(dic_checkout)
+
         try:
-            datos_checkout.append(current_datetime)
-            datos_checkout.append(room_key)
             with open(checkout, "w", encoding="utf-8", newline="") as file:
                 json.dump(datos_checkout, file, indent=2)
             print("checkout generado")
