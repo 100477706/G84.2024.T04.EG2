@@ -373,7 +373,8 @@ class HotelManager:
         #room_key está en el almacén. Ahora vamos a comprobar que la fecha de hoy se corresponde
         #con la fecha de salida registrada en el almacén
         try:
-            current_datetime = str(datetime.utcnow())
+            justnow = datetime.utcnow()
+            current_datetime = justnow.strftime('%d/%m/%Y %H:%M')
             departure_date = ""
             for dato in datos_llegada:
                 departure_date = dato["_HOTEL_STAY__departure"]
