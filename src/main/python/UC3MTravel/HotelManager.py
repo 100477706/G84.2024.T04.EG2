@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 from .HotelManagementException import HOTEL_MANAGEMENT_EXCEPTION
@@ -342,8 +343,8 @@ class HotelManager:
     ######
     # TERCERA FUNCIÓN
     def guest_checkout(self, room_key):
-        #Esta función debe devolver TRUE si la hora de salida es igual a la programada y si la clave es válida.
-        #Primero compruebo que se encuentra store_arrival
+        # Esta función debe devolver TRUE si la hora de salida es igual a la programada y si la clave es válida.
+        # Primero compruebo que se encuentra store_stay
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
         archivo = JSON_FILES_PATH + "store_stay.json"
 
@@ -351,47 +352,41 @@ class HotelManager:
             with open(archivo, "r", encoding="utf-8", newline="") as archivo1:
                 datos_llegada = json.load(archivo1)
         except FileNotFoundError as ex:
-            datos_llegada = []
+            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
         except json.JSONDecodeError as ex:
             raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
 
-        #ahora compruebo que room_key es hexadecimal
-        if self.es_hexadecimal(room_key) == False:
+        # ahora compruebo que room_key es hexadecimal
+        if self.comprobar_room_key(room_key) == False:
             raise HOTEL_MANAGEMENT_EXCEPTION("FORMATO DE ROOM_KEY INCORRECTO")
-        #Formato correcto, ahora vamos a ver si la room_key es correcta. Para ello, usaremos el mismo método
-        #que el usado en la función 2
-        try:
-            aux = ""
-            for element in datos_llegada:
-                aux = element["_HOTEL_STAY__room_key"]
-            if aux != room_key:
-                raise HOTEL_MANAGEMENT_EXCEPTION("ROOM KEY NO COINCIDE")
-        except FileNotFoundError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("ARCHIVO O RUTA INCORRECTO")
-        except json.JSONDecodeError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
-        #room_key está en el almacén. Ahora vamos a comprobar que la fecha de hoy se corresponde
-        #con la fecha de salida registrada en el almacén
-        try:
-            justnow = datetime.utcnow()
-            current_datetime = justnow.strftime('%d/%m/%Y %H:%M')
-            departure_date = ""
-            for dato in datos_llegada:
-                departure_date = dato["_HOTEL_STAY__departure"]
-            if current_datetime[:10] != departure_date[:10]:
-                raise HOTEL_MANAGEMENT_EXCEPTION("FECHA DE SALIDA NO VÁLIDA")
-        except FileNotFoundError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("ARCHIVO O RUTA INCORRECTO")
-        except json.JSONDecodeError as ex:
-            raise HOTEL_MANAGEMENT_EXCEPTION("JsonDecodeError")
-        #Ahora solo queda generar el almacén para guardar la hora de salida y la room key
+        # Formato correcto, ahora vamos a ver si la room_key es correcta y la fecha de llegada es correcta. Para ello,
+        # usaremos el mismo método que el usado en la función 2
+
+        aux = []
+        for element in datos_llegada:
+            aux.append(element["_HOTEL_STAY__room_key"])
+            aux.append(element["_HOTEL_STAY__departure"])
+
+        justnow = datetime.utcnow()
+        current_datetime = justnow.strftime('%d/%m/%Y %H:%M')
+        check = False
+        for i in range(len(aux)):
+            if room_key == aux[i]:
+                if current_datetime == aux[i+1]:
+                    check = True
+            i += 1
+
+        if check == False:
+            raise HOTEL_MANAGEMENT_EXCEPTION("ROOM KEY O FECHA INCORRECTA")
+
+        # Ahora solo queda generar el almacén para guardar la hora de salida y la room key
         JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
-        checkout = JSON_FILES_PATH + "guest_checkout.json"
+        checkout = JSON_FILES_PATH + "store_checkout.json"
 
         dic_checkout = {}
-        for cliente in datos_llegada:
-            dic_checkout.update({'_CHECKOUT__room_key': cliente["_HOTEL_STAY__room_key"],
-                                 '_CHECKOUT__departure_time': current_datetime})
+
+        dic_checkout.update({'_CHECKOUT__room_key': room_key,
+                             '_CHECKOUT__departure_time': current_datetime})
         try:
             with open(checkout, "r", encoding="utf-8", newline="") as archivo1:
                 datos_checkout = json.load(archivo1)
@@ -476,3 +471,10 @@ class HotelManager:
 
     def es_hexadecimal(self, cadena):
         return all(caracter.isdigit() or caracter.lower() in 'abcdef' for caracter in cadena)
+
+    def comprobar_room_key(self,room_key):
+        regex = '[0-9a-fA-F]{64}'
+        if re.search(regex, room_key):
+            return True
+        else:
+            return False
