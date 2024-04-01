@@ -22,7 +22,7 @@ class HOTEL_STAY:
         """Composes the string to be used for generating the key for the room"""
         return "{alg:" + self.__alg + ",typ:" + self.__type + ",localizer:" + \
             self.__localizer + ",arrival:" + self.__arrival + \
-            ",departure:" + self.__departure+ "}"
+            ",departure:" + self.__departure + "}"
 
     @property
     def id_card(self):

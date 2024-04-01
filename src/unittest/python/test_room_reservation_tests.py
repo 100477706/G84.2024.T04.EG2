@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 
 import UC3MTravel.HotelManagementException
-from UC3MTravel import HotelManager
+from UC3MTravel import HOTEL_MANAGER
 from UC3MTravel import HotelReservation
 # VAMOS A EMPLEAR FREEZE_TIME PARA CONGELAR AL TIEMPO Y COMPROBAR QUE LOS LOCALIZADORES
 # QUE SALEN AL PROBAR LA
@@ -20,7 +20,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        tarjeta = HotelManager.HotelManager()
+        tarjeta = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -42,7 +42,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        tarjeta = HotelManager.HotelManager()
+        tarjeta = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -64,7 +64,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        tarjeta = HotelManager.HotelManager()
+        tarjeta = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -86,7 +86,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        tarjeta = HotelManager.HotelManager()
+        tarjeta = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -108,7 +108,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        tarjeta = HotelManager.HotelManager()
+        tarjeta = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -130,7 +130,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        tarjeta = HotelManager.HotelManager()
+        tarjeta = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -155,7 +155,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dni = HotelManager.HotelManager()
+        dni = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -177,7 +177,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dni = HotelManager.HotelManager()
+        dni = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -199,7 +199,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dni = HotelManager.HotelManager()
+        dni = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -221,7 +221,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dni = HotelManager.HotelManager()
+        dni = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -243,7 +243,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dni = HotelManager.HotelManager()
+        dni = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -265,7 +265,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dni = HotelManager.HotelManager()
+        dni = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -290,7 +290,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        nombre = HotelManager.HotelManager()
+        nombre = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -313,7 +313,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        nombre = HotelManager.HotelManager()
+        nombre = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -336,7 +336,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        nombre = HotelManager.HotelManager()
+        nombre = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -359,7 +359,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        nombre = HotelManager.HotelManager()
+        nombre = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -384,7 +384,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        nombre = HotelManager.HotelManager()
+        nombre = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -409,7 +409,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        telefono = HotelManager.HotelManager()
+        telefono = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -431,7 +431,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        telefono = HotelManager.HotelManager()
+        telefono = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -453,7 +453,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        telefono = HotelManager.HotelManager()
+        telefono = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -478,7 +478,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        habitacion = HotelManager.HotelManager()
+        habitacion = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -500,7 +500,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        habitacion = HotelManager.HotelManager()
+        habitacion = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -523,7 +523,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        habitacion = HotelManager.HotelManager()
+        habitacion = HOTEL_MANAGER()
 
         reserva = habitacion.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                                      655789987, "Single", "01/01/2100", 5)
@@ -544,7 +544,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        habitacion = HotelManager.HotelManager()
+        habitacion = HOTEL_MANAGER()
 
         reserva = habitacion.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                                      655789987, "Double", "01/01/2100", 5)
@@ -565,7 +565,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        habitacion = HotelManager.HotelManager()
+        habitacion = HOTEL_MANAGER()
 
         reserva = habitacion.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                                      655789987, "Suit", "01/01/2100", 5)
@@ -590,7 +590,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dias = HotelManager.HotelManager()
+        dias = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -612,7 +612,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dias = HotelManager.HotelManager()
+        dias = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -634,7 +634,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        dias = HotelManager.HotelManager()
+        dias = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -658,7 +658,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -680,7 +680,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -702,7 +702,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -724,7 +724,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -746,7 +746,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -768,7 +768,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -790,7 +790,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -812,7 +812,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -834,7 +834,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
@@ -858,7 +858,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        fecha = HotelManager.HotelManager()
+        fecha = HOTEL_MANAGER()
 
         with self.assertRaises(UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as\
                 cm:
@@ -882,7 +882,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                            "Single", "01/01/2100", 5)
@@ -915,7 +915,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678A",
                                            613589749,
                                            "Double", "01/02/2100", 3)
@@ -950,7 +950,7 @@ class TestRoomReservation(unittest.TestCase):
         archivo = JSON_FILES_PATH + "file_store.json"
         if os.path.isfile(archivo):
             os.remove(archivo)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                            "Single", "01/01/2100", 5)

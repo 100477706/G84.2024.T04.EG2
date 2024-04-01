@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_guest_checkout_tests.TestHotelManager-20240401102620" tests="14" file="test_guest_checkout_tests.py" time="0.437" timestamp="2024-04-01T10:26:22" failures="0" errors="0" skipped="0">
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid1" time="0.032" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid10" time="0.061" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid11" time="0.068" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid12" time="0.084" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid13" time="0.022" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid14" time="0.013" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid2" time="0.030" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid3" time="0.020" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid4" time="0.016" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid5" time="0.018" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid6" time="0.015" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid7" time="0.012" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid8" time="0.023" timestamp="2024-04-01T10:26:22"/>
+	<testcase classname="test_guest_checkout_tests.TestHotelManager" name="test_guest_checkout_valid9" time="0.022" timestamp="2024-04-01T10:26:22"/>
+</testsuite>

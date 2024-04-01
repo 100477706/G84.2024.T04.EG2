@@ -1,7 +1,5 @@
 [MAIN]
 
-<<<<<<< HEAD
-=======
 # SE DESHABILITÓ LAS ALERTAS DE OBLIGATORIEDAD PARA COLOCAR UN STRING DESPUÉS DE CADA FUNCION O
 # CLASE
 
@@ -9,7 +7,6 @@ disable=C0114,
         C0115,
         C0116
 
->>>>>>> origin/main
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
 # only in one or another interpreter, leading to false positives when analysed.
@@ -98,11 +95,7 @@ persistent=yes
 
 # Minimum Python version to use for version dependent checks. Will default to
 # the version used to run pylint.
-<<<<<<< HEAD
 py-version=3.9
-=======
-py-version=3.10
->>>>>>> origin/main
 
 # Discover python modules and packages in the file system subtree.
 recursive=no
@@ -133,14 +126,10 @@ argument-naming-style=snake_case
 # Regular expression matching correct argument names. Overrides argument-
 # naming-style. If left empty, argument names will be checked with the set
 # naming style.
-<<<<<<< HEAD
-#argument-rgx=
-=======
 
 # EL RGX DE LOS ARGUMENTOS FUE MODIFICADO
 # REGLA ORIGINAL: argument-rgx=
 argument-rgx=[a-z_][a-z0-9_]{1,30}$
->>>>>>> origin/main
 
 # Naming style matching correct attribute names.
 attr-naming-style=snake_case
@@ -148,11 +137,8 @@ attr-naming-style=snake_case
 # Regular expression matching correct attribute names. Overrides attr-naming-
 # style. If left empty, attribute names will be checked with the set naming
 # style.
-<<<<<<< HEAD
-#attr-rgx=
 
 # Bad variable names which should always be refused, separated by a comma.
-=======
 
 # EL RGX DE LOS ATRIBUTOS FUE MODIFICADO
 # REGLA ORIGINAL: attr-rgx=
@@ -161,48 +147,36 @@ attr-rgx=[a-z_][a-z0-9_]{1,30}$
 # Bad variable names which should always be refused, separated by a comma.
 
 # SE AGREGARON LOS NOMBRES KAKA, TONTO, IDIOTA, BOBO
->>>>>>> origin/main
 bad-names=foo,
           bar,
           baz,
           toto,
           tutu,
-<<<<<<< HEAD
-          tata
-=======
           tata,
           kaka,
           tonto,
           idiota,
           bobo,
           popo
->>>>>>> origin/main
 
 # Bad variable names regexes, separated by a comma. If names match any regex,
 # they will always be refused
 bad-names-rgxs=
 
 # Naming style matching correct class attribute names.
-<<<<<<< HEAD
-#class-attribute-naming-style=any
-=======
 
 # EL ESTILO DE LOS NOMBRES DE LOS ATRIBUTOS DE LAS CLASES FUE MODIFICADO
 # REGLA ORIGINAL: class-attribute-naming-style=any
 class-attribute-naming-style=snake_case
->>>>>>> origin/main
+
 
 # Regular expression matching correct class attribute names. Overrides class-
 # attribute-naming-style. If left empty, class attribute names will be checked
 # with the set naming style.
-<<<<<<< HEAD
-#class-attribute-rgx=
-=======
 
 # EL RGX DE LOS ATRIBUTOS DE LAS CLASES FUE MODIFICADO
 # REGLA ORIGINAL: class-attribute-rgx=
 class-attribute-rgx=[a-z_][a-z0-9_]{1,30}$
->>>>>>> origin/main
 
 # Naming style matching correct class constant names.
 class-const-naming-style=UPPER_CASE
@@ -210,20 +184,18 @@ class-const-naming-style=UPPER_CASE
 # Regular expression matching correct class constant names. Overrides class-
 # const-naming-style. If left empty, class constant names will be checked with
 # the set naming style.
-<<<<<<< HEAD
-#class-const-rgx=
+
+# EL RGX DE LAS CONSTANTES DE LAS CLASES FUE MODIFICADO
+# REGLA ORIGINAL: class-const-rgx=
+class-const-rgx=[A-Z_][A-Z0-9_]{1,30}$
 
 # Naming style matching correct class names.
 class-naming-style=PascalCase
 
 # Regular expression matching correct class names. Overrides class-naming-
 # style. If left empty, class names will be checked with the set naming style.
-#class-rgx=
-=======
+class-rgx=
 
-# EL RGX DE LAS CONSTANTES DE LAS CLASES FUE MODIFICADO
-# REGLA ORIGINAL: class-const-rgx=
-class-const-rgx=[A-Z_][A-Z0-9_]{1,30}$
 
 # Naming style matching correct class names.
 
@@ -237,7 +209,6 @@ class-naming-style=UPPER_CASE
 # EL RGX DE LAS CLASES FUE MODIFICADO
 # REGLA ORIGINAL: class-rgx=
 class-rgx=[A-Z_][A-Z0-9_]{1,30}$
->>>>>>> origin/main
 
 # Naming style matching correct constant names.
 const-naming-style=UPPER_CASE
@@ -245,28 +216,20 @@ const-naming-style=UPPER_CASE
 # Regular expression matching correct constant names. Overrides const-naming-
 # style. If left empty, constant names will be checked with the set naming
 # style.
-<<<<<<< HEAD
-#const-rgx=
-=======
 
 # EL RGX DE LAS CONSTANTES FUE MODIFICADO
 # REGLA ORIGINAL: const-rgx=
 const-rgx=[A-Z_][A-Z0-9_]{1,30}$
->>>>>>> origin/main
 
 # Minimum line length for functions/classes that require docstrings, shorter
 # ones are exempt.
 docstring-min-length=-1
 
 # Naming style matching correct function names.
-<<<<<<< HEAD
-#function-naming-style=snake_case
-=======
 
 # EL ESTILO DE LOS NOMBRES DE LAS FUNCIONES FUE MODIFICADO
 # REGLA ORIGINAL: function-naming-style=snake_case
 function-naming-style=PascalCase
->>>>>>> origin/main
 
 # Regular expression matching correct function names. Overrides function-
 # naming-style. If left empty, function names will be checked with the set
@@ -297,28 +260,22 @@ inlinevar-naming-style=any
 #inlinevar-rgx=
 
 # Naming style matching correct method names.
-<<<<<<< HEAD
-#method-naming-style=snake_case
-=======
 
 # EL ESTILO DE LOS NOMBRES DE LOS MÉTODOS FUE MODIFICADO
 # REGLA ORIGINAL: method-naming-style=snake_case
 method-naming-style=PascalCase
->>>>>>> origin/main
+
 
 # Regular expression matching correct method names. Overrides method-naming-
 # style. If left empty, method names will be checked with the set naming style.
 #method-rgx=
 
 # Naming style matching correct module names.
-<<<<<<< HEAD
-#module-naming-style=snake_case
-=======
 
 # EL ESTILO DE LOS NOMBRES DE LOS MÓDULOS FUE MODIFICADO
 # REGLA ORIGINAL: module-naming-style=snake_case
 module-naming-style=PascalCase
->>>>>>> origin/main
+
 
 # Regular expression matching correct module names. Overrides module-naming-
 # style. If left empty, module names will be checked with the set naming style.
@@ -351,14 +308,11 @@ variable-naming-style=snake_case
 # Regular expression matching correct variable names. Overrides variable-
 # naming-style. If left empty, variable names will be checked with the set
 # naming style.
-<<<<<<< HEAD
-#variable-rgx=
-=======
 
 # EL RGX DE LAS VARIABLES FUE MODIFICADO
 # REGLA ORIGINAL: variable-rgx=
 variable-rgx=[a-z_][a-z0-9_]{1,30}$
->>>>>>> origin/main
+
 
 
 [CLASSES]
@@ -395,11 +349,9 @@ exclude-too-few-public-methods=
 ignored-parents=
 
 # Maximum number of arguments for function / method.
-<<<<<<< HEAD
 max-args=5
-=======
 max-args=8
->>>>>>> origin/main
+
 
 # Maximum number of attributes for a class (see R0902).
 max-attributes=7
@@ -446,17 +398,7 @@ ignore-long-lines=^\s*(# )?<?https?://\S+>?$
 # Number of spaces of indent required inside a hanging or continued line.
 indent-after-paren=4
 
-# String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
-# tab).
-<<<<<<< HEAD
-indent-string='    '
-
-# Maximum number of characters on a single line.
-max-line-length=100
-
-# Maximum number of lines in a module.
-max-module-lines=1000
-=======
+# String used as indentation unit.
 
 # LA FORMA DE ABRIR Y CERRAR LOS STRING FUE MODIFICADA
 # REGLA ORIGINAL: '   '
@@ -473,7 +415,7 @@ max-line-length=120
 # EL NÚMERO DE LINEAS POR MÓDULO FUE MODIFICADO
 # REGLA ORIGINAL: max-module-length=1000
 max-module-lines=3000
->>>>>>> origin/main
+
 
 # Allow the body of a class to be on the same line as the declaration if body
 # contains single statement.

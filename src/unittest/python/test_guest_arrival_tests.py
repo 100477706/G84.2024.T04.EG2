@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 
 import UC3MTravel.HotelManagementException
-from UC3MTravel import HotelManager
+from UC3MTravel import HOTEL_MANAGER
 from UC3MTravel import HotelReservation
 from freezegun import freeze_time
 
@@ -25,7 +25,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(ingreso)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -83,7 +83,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(ingreso)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -143,7 +143,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -183,7 +183,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -223,7 +223,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -263,7 +263,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -303,7 +303,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -343,7 +343,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -383,7 +383,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -423,7 +423,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -463,7 +463,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -503,7 +503,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -543,7 +543,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -583,7 +583,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -623,7 +623,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -663,7 +663,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -703,7 +703,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -743,7 +743,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -784,7 +784,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -825,7 +825,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -865,7 +865,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -905,7 +905,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -945,7 +945,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -985,7 +985,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1025,7 +1025,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1065,7 +1065,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1105,7 +1105,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1147,7 +1147,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1189,7 +1189,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1229,7 +1229,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1269,7 +1269,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1309,7 +1309,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1349,7 +1349,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1389,7 +1389,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1429,7 +1429,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1469,7 +1469,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1509,7 +1509,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1549,7 +1549,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1590,7 +1590,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1630,7 +1630,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1670,7 +1670,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1710,7 +1710,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1750,7 +1750,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(archivo)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1791,7 +1791,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
 
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "29/07/2030", 5)
@@ -1853,7 +1853,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
 
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1912,7 +1912,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
 
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
@@ -1972,7 +1972,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(ingreso)
         if os.path.isfile(arrival):
             os.remove(arrival)
-        manager = HotelManager.HotelManager()
+        manager = HOTEL_MANAGER()
         reserva1 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678D",
                                             613589749,
                                             "Single", "16/03/2024", 1)
@@ -2028,6 +2028,86 @@ class TestGuestArrival(unittest.TestCase):
             if item['_HOTEL_STAY__idcard'] == "11185346D":
                 found = True
         self.assertTrue(found)
+
+# PRUEBA DE BORRADO DEL NODO 1
+    @freeze_time("2024-03-16 17:00:00")
+    def test_guest_arrival_valid47(self):
+        JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
+        JSON_TEST_RF2 = str(Path.home()) + \
+                        "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/TestJsonRf2/"
+        archivo = JSON_FILES_PATH + "file_store.json"
+        ingreso = JSON_TEST_RF2 + "nodo1_borrado.json"
+        arrival = JSON_FILES_PATH + "store_stay.json"
+        if os.path.isfile(archivo):
+            os.remove(archivo)
+        if os.path.isfile(arrival):
+            os.remove(arrival)
+        manager = HOTEL_MANAGER()
+        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+                                            655789987,
+                                            "Single", "16/03/2024", 5)
+        self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
+
+        with open(archivo, "r", encoding='utf-8', newline="") as file:
+            data_list = json.load(file)
+        found = False
+        for item in data_list:
+            if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
+                found = True
+        self.assertTrue(found)
+
+        with self.assertRaises(
+                UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
+                cm:
+            habitacion = manager.guest_arrival(ingreso)
+        self.assertEqual(cm.exception.message, "JsonDecodeError")
+
+        try:
+            with open(arrival, "r") as archivo_org:
+                removed = False
+        except FileNotFoundError as ex:
+            removed = True
+        self.assertTrue(removed)
+
+# PRUEBA DE BORRADO DEL NODO 1
+    @freeze_time("2024-03-16 17:00:00")
+    def test_guest_arrival_valid48(self):
+        JSON_FILES_PATH = str(Path.home()) + "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/"
+        JSON_TEST_RF2 = str(Path.home()) + \
+                        "/PycharmProjects/G84.2024.T04.EG2/src/JsonFiles/TestJsonRf2/"
+        archivo = JSON_FILES_PATH + "file_store.json"
+        ingreso = JSON_TEST_RF2 + "nodo1_duplicado.json"
+        arrival = JSON_FILES_PATH + "store_stay.json"
+        if os.path.isfile(archivo):
+            os.remove(archivo)
+        if os.path.isfile(arrival):
+            os.remove(arrival)
+        manager = HOTEL_MANAGER()
+        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+                                            655789987,
+                                            "Single", "16/03/2024", 5)
+        self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
+
+        with open(archivo, "r", encoding='utf-8', newline="") as file:
+            data_list = json.load(file)
+        found = False
+        for item in data_list:
+            if item['_HOTEL_RESERVATION__id_card'] == "11185346D":
+                found = True
+        self.assertTrue(found)
+
+        with self.assertRaises(
+                UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
+                cm:
+            habitacion = manager.guest_arrival(ingreso)
+        self.assertEqual(cm.exception.message, "JsonDecodeError")
+
+        try:
+            with open(arrival, "r") as archivo_org:
+                removed = False
+        except FileNotFoundError as ex:
+            removed = True
+        self.assertTrue(removed)
 
 
 if __name__ == '__main__':
