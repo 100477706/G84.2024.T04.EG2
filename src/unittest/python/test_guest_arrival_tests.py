@@ -26,7 +26,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -57,7 +57,7 @@ class TestGuestArrival(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -84,7 +84,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -115,7 +115,7 @@ class TestGuestArrival(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -144,7 +144,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -160,7 +160,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -184,7 +184,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -200,7 +200,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -224,7 +224,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -240,7 +240,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -264,7 +264,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -280,7 +280,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -304,7 +304,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -320,7 +320,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -344,7 +344,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -360,7 +360,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -384,7 +384,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -400,7 +400,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -424,7 +424,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -440,7 +440,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -464,7 +464,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -480,7 +480,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -504,7 +504,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -520,7 +520,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -544,7 +544,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -560,7 +560,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -584,7 +584,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -600,7 +600,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -624,7 +624,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -640,7 +640,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -664,7 +664,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -680,7 +680,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -704,7 +704,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -720,7 +720,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -744,7 +744,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -760,7 +760,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -785,7 +785,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -801,7 +801,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -826,7 +826,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -842,7 +842,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -866,7 +866,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -882,7 +882,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -906,7 +906,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -922,7 +922,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -946,7 +946,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -962,7 +962,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -986,7 +986,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1002,7 +1002,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1026,7 +1026,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1042,7 +1042,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1066,7 +1066,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1082,7 +1082,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1106,7 +1106,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1122,7 +1122,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1148,7 +1148,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1164,7 +1164,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1190,7 +1190,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1206,7 +1206,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1230,7 +1230,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1246,7 +1246,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1270,7 +1270,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1286,7 +1286,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1310,7 +1310,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1326,7 +1326,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1350,7 +1350,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1366,7 +1366,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1390,7 +1390,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1406,7 +1406,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1430,7 +1430,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1446,7 +1446,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1470,7 +1470,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1486,7 +1486,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1510,7 +1510,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1526,7 +1526,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1550,7 +1550,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1566,7 +1566,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1591,7 +1591,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1607,7 +1607,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1631,7 +1631,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1647,7 +1647,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1671,7 +1671,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1687,7 +1687,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1711,7 +1711,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1727,7 +1727,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1751,7 +1751,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1767,7 +1767,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -1792,7 +1792,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(arrival)
 
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "29/07/2030", 5)
         self.assertEqual(reserva1, "64f108ad0e214fd504d2520c93347e18")
@@ -1826,7 +1826,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message,
                          "La fecha de llegada no coincide con la del fichero de reserva")
 
@@ -1854,7 +1854,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(arrival)
 
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1888,7 +1888,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "El IdCard o el Localizer no coincide")
 
         try:
@@ -1913,7 +1913,7 @@ class TestGuestArrival(unittest.TestCase):
             os.remove(arrival)
 
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1947,7 +1947,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "El IdCard o el Localizer no coincide")
 
         try:
@@ -1973,7 +1973,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Gabriel Rivera", "12345678D",
                                             613589749,
                                             "Single", "16/03/2024", 1)
         self.assertEqual(reserva1, "4bf065d059cc321d647d8e24528c2fb3")
@@ -2004,7 +2004,7 @@ class TestGuestArrival(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        reserva2 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva2 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva2, "7532a04bf679689f4156228d60c542e4")
@@ -2017,7 +2017,7 @@ class TestGuestArrival(unittest.TestCase):
                 found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -2043,7 +2043,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -2059,7 +2059,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:
@@ -2083,7 +2083,7 @@ class TestGuestArrival(unittest.TestCase):
         if os.path.isfile(arrival):
             os.remove(arrival)
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -2099,7 +2099,7 @@ class TestGuestArrival(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as \
                 cm:
-            habitacion = manager.guest_arrival(ingreso)
+            habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(cm.exception.message, "JsonDecodeError")
 
         try:

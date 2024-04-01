@@ -30,7 +30,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -61,7 +61,7 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -76,7 +76,7 @@ class TestHotelManager(unittest.TestCase):
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 
@@ -98,7 +98,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -129,11 +129,11 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
-        reserva2 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678A",
+        reserva2 = manager.RoomReservation(6011111111111117, "Gabriel Rivera", "12345678A",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva2, "33af6850960f746f8f9bf0d585c41dfd")
@@ -164,7 +164,7 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "f9867bbfcaa85e6d91103ca17a3a8714be7521451bb2afaacce78301ab19c7ba")
 
@@ -179,12 +179,12 @@ class TestHotelManager(unittest.TestCase):
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "f9867bbfcaa85e6d91103ca17a3a8714be7521451bb2afaacce78301ab19c7ba"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 ##############
@@ -209,7 +209,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -240,7 +240,7 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -255,7 +255,7 @@ class TestHotelManager(unittest.TestCase):
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 
@@ -278,7 +278,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -309,7 +309,7 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -334,7 +334,7 @@ class TestHotelManager(unittest.TestCase):
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 
@@ -357,7 +357,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -388,7 +388,7 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -405,7 +405,7 @@ class TestHotelManager(unittest.TestCase):
             with self.assertRaises(
                     UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as cm:
                 room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-                salida = manager.guest_checkout(room_key)
+                salida = manager.GuestCheckout(room_key)
             self.assertEqual(cm.exception.message, "FECHA DE SALIDA NO VÁLIDA")
 
         try:
@@ -435,7 +435,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -466,7 +466,7 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -483,7 +483,7 @@ class TestHotelManager(unittest.TestCase):
             with self.assertRaises(
                     UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as cm:
                 room_key = "f9867bbfcaa85e6d91103ca17a3a8714be7521451bb2afaacce78301ab19c7ba"
-                salida = manager.guest_checkout(room_key)
+                salida = manager.GuestCheckout(room_key)
             self.assertEqual(cm.exception.message, "ROOM KEY NO COINCIDE")
 
         try:
@@ -522,7 +522,7 @@ class TestHotelManager(unittest.TestCase):
         with self.assertRaises(
                 UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as cm:
             room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
         self.assertEqual(cm.exception.message, "ROOM KEY NO COINCIDE")
 
         try:
@@ -552,7 +552,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -583,7 +583,7 @@ class TestHotelManager(unittest.TestCase):
             found = True
         self.assertTrue(found)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -598,7 +598,7 @@ class TestHotelManager(unittest.TestCase):
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 
@@ -621,12 +621,12 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
 
-        reserva2 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678A",
+        reserva2 = manager.RoomReservation(6011111111111117, "Gabriel Rivera", "12345678A",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva2, "494415e484ecd3fb8083c44e58029a6c")
@@ -642,7 +642,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -657,14 +657,14 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c")
         my_frezeer.stop()
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 
@@ -691,22 +691,22 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
 
-        reserva2 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678A",
+        reserva2 = manager.RoomReservation(6011111111111117, "Gabriel Rivera", "12345678A",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva2, "494415e484ecd3fb8083c44e58029a6c")
 
-        reserva3 = manager.room_reservation(6011111111111117, "Joaquin Pujol", "10047776B",
+        reserva3 = manager.RoomReservation(6011111111111117, "Joaquin Pujol", "10047776B",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva3, "5b6bc6895dda417b90e6922b82d93892")
 
-        reserva4 = manager.room_reservation(6011111111111117, "Santiago Diaz", "30224780C",
+        reserva4 = manager.RoomReservation(6011111111111117, "Santiago Diaz", "30224780C",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva4, "bead895c037b602608a56a207a9ad467")
@@ -723,7 +723,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -739,7 +739,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "bca6706dbd48486220751758bcef57878ba8f1aa9da89e4780ef7da95974960f")
 
@@ -755,7 +755,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "8efd33d036edb4e2891c17870fe8c693e540cecead2eddfc765a71ef53d0066b")
 
@@ -771,14 +771,14 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c")
         my_frezeer.stop()
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 
@@ -801,27 +801,27 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
 
-        reserva2 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678A",
+        reserva2 = manager.RoomReservation(6011111111111117, "Gabriel Rivera", "12345678A",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva2, "494415e484ecd3fb8083c44e58029a6c")
 
-        reserva3 = manager.room_reservation(6011111111111117, "Joaquin Pujol", "10047776B",
+        reserva3 = manager.RoomReservation(6011111111111117, "Joaquin Pujol", "10047776B",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva3, "5b6bc6895dda417b90e6922b82d93892")
 
-        reserva4 = manager.room_reservation(6011111111111117, "Santiago Diaz", "30224780C",
+        reserva4 = manager.RoomReservation(6011111111111117, "Santiago Diaz", "30224780C",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva4, "bead895c037b602608a56a207a9ad467")
 
-        reserva5 = manager.room_reservation(6011111111111117, "Rebeca Fung", "61358974E",
+        reserva5 = manager.RoomReservation(6011111111111117, "Rebeca Fung", "61358974E",
                                             613799789,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva5, "35b635110dff257321ed0d3164f0cf3d")
@@ -838,7 +838,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -854,7 +854,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "bca6706dbd48486220751758bcef57878ba8f1aa9da89e4780ef7da95974960f")
 
@@ -870,7 +870,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "8efd33d036edb4e2891c17870fe8c693e540cecead2eddfc765a71ef53d0066b")
 
@@ -886,7 +886,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "c7e03ac8e0d7cfdd81db98f20e08f412f9ffb3b38245991bba412082d61cdcbd")
 
@@ -902,14 +902,14 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c")
         my_frezeer.stop()
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
     # PRUEBA DE CAMINO 11 - NUMERO MAXIMO DE ITERACIONES +1
@@ -931,32 +931,32 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
 
-        reserva2 = manager.room_reservation(6011111111111117, "Gabriel Rivera", "12345678A",
+        reserva2 = manager.RoomReservation(6011111111111117, "Gabriel Rivera", "12345678A",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva2, "494415e484ecd3fb8083c44e58029a6c")
 
-        reserva3 = manager.room_reservation(6011111111111117, "Joaquin Pujol", "10047776B",
+        reserva3 = manager.RoomReservation(6011111111111117, "Joaquin Pujol", "10047776B",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva3, "5b6bc6895dda417b90e6922b82d93892")
 
-        reserva4 = manager.room_reservation(6011111111111117, "Santiago Diaz", "30224780C",
+        reserva4 = manager.RoomReservation(6011111111111117, "Santiago Diaz", "30224780C",
                                             613589749,
                                             "Double", "16/03/2024", 5)
         self.assertEqual(reserva4, "bead895c037b602608a56a207a9ad467")
 
-        reserva5 = manager.room_reservation(6011111111111117, "Rebeca Fung", "61358974E",
+        reserva5 = manager.RoomReservation(6011111111111117, "Rebeca Fung", "61358974E",
                                             613799789,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva5, "35b635110dff257321ed0d3164f0cf3d")
 
-        reserva6 = manager.room_reservation(6011111111111117, "Victor Franco", "87654321F",
+        reserva6 = manager.RoomReservation(6011111111111117, "Victor Franco", "87654321F",
                                             643799789,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva6, "ad575662e7ccc013facae0bb9f611a97")
@@ -973,7 +973,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -989,7 +989,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "bca6706dbd48486220751758bcef57878ba8f1aa9da89e4780ef7da95974960f")
 
@@ -1005,7 +1005,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "8efd33d036edb4e2891c17870fe8c693e540cecead2eddfc765a71ef53d0066b")
 
@@ -1021,7 +1021,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "c7e03ac8e0d7cfdd81db98f20e08f412f9ffb3b38245991bba412082d61cdcbd")
 
@@ -1037,7 +1037,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c")
 
@@ -1053,14 +1053,14 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "7691fcb5182d005b7da3b17758589c798a19943bb106a99cb3269d2dd521f72c")
         my_frezeer.stop()
 
         with freeze_time("2024-03-21 10:00:00"):
             room_key = "95628f204e582fb643bb0e21c3c88121cb91a52cc64079c39d17c01060d4786c"
-            salida = manager.guest_checkout(room_key)
+            salida = manager.GuestCheckout(room_key)
             self.assertEqual(salida, True)
 
 # PRUEBA DE CAMINO 12
@@ -1082,7 +1082,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1098,7 +1098,7 @@ class TestHotelManager(unittest.TestCase):
         with open(ingreso, "w", encoding="utf-8", newline="") as file:
             json.dump(dic_ingreso, file, indent=2)
 
-        habitacion = manager.guest_arrival(ingreso)
+        habitacion = manager.GuestArrival(ingreso)
         self.assertEqual(habitacion,
                          "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3")
 
@@ -1106,7 +1106,7 @@ class TestHotelManager(unittest.TestCase):
             with self.assertRaises(
                     UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as cm:
                 room_key = "27z8949ax8561e3m7bd588dd370e154fede607c3a6cdc1h342444ik8473701j3"
-                salida = manager.guest_checkout(room_key)
+                salida = manager.GuestCheckout(room_key)
             self.assertEqual(cm.exception.message, "FORMATO DE ROOM_KEY INCORRECTO")
 
         try:
@@ -1136,7 +1136,7 @@ class TestHotelManager(unittest.TestCase):
         my_frezeer = freeze_time("2024-03-16 17:00:00")
         my_frezeer.start()
         manager = HOTEL_MANAGER()
-        reserva1 = manager.room_reservation(6011111111111117, "Pepe Navarro", "11185346D",
+        reserva1 = manager.RoomReservation(6011111111111117, "Pepe Navarro", "11185346D",
                                             655789987,
                                             "Single", "16/03/2024", 5)
         self.assertEqual(reserva1, "7532a04bf679689f4156228d60c542e4")
@@ -1145,7 +1145,7 @@ class TestHotelManager(unittest.TestCase):
             with self.assertRaises(
                     UC3MTravel.HotelManagementException.HOTEL_MANAGEMENT_EXCEPTION) as cm:
                 room_key = "27d8949aa8561e3e7bd588dd370e154fede607c3a6cdc1b342444af8473701a3"
-                salida = manager.guest_checkout(room_key)
+                salida = manager.GuestCheckout(room_key)
             self.assertEqual(cm.exception.message, "ARCHIVO O RUTA INCORRECTO")
 
         try:

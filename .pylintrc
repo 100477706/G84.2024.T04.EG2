@@ -1,11 +1,14 @@
 [MAIN]
 
+
+
 # SE DESHABILITÓ LAS ALERTAS DE OBLIGATORIEDAD PARA COLOCAR UN STRING DESPUÉS DE CADA FUNCION O
 # CLASE
 
 disable=C0114,
         C0115,
         C0116
+
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
@@ -95,7 +98,6 @@ persistent=yes
 
 # Minimum Python version to use for version dependent checks. Will default to
 # the version used to run pylint.
-py-version=3.9
 
 # Discover python modules and packages in the file system subtree.
 recursive=no
@@ -126,6 +128,7 @@ argument-naming-style=snake_case
 # Regular expression matching correct argument names. Overrides argument-
 # naming-style. If left empty, argument names will be checked with the set
 # naming style.
+#argument-rgx=
 
 # EL RGX DE LOS ARGUMENTOS FUE MODIFICADO
 # REGLA ORIGINAL: argument-rgx=
@@ -140,13 +143,9 @@ attr-naming-style=snake_case
 
 # Bad variable names which should always be refused, separated by a comma.
 
-# EL RGX DE LOS ATRIBUTOS FUE MODIFICADO
-# REGLA ORIGINAL: attr-rgx=
-attr-rgx=[a-z_][a-z0-9_]{1,30}$
-
-# Bad variable names which should always be refused, separated by a comma.
 
 # SE AGREGARON LOS NOMBRES KAKA, TONTO, IDIOTA, BOBO
+
 bad-names=foo,
           bar,
           baz,
@@ -159,11 +158,15 @@ bad-names=foo,
           bobo,
           popo
 
+
 # Bad variable names regexes, separated by a comma. If names match any regex,
 # they will always be refused
 bad-names-rgxs=
 
 # Naming style matching correct class attribute names.
+
+#class-attribute-naming-style=any
+
 
 # EL ESTILO DE LOS NOMBRES DE LOS ATRIBUTOS DE LAS CLASES FUE MODIFICADO
 # REGLA ORIGINAL: class-attribute-naming-style=any
@@ -174,9 +177,13 @@ class-attribute-naming-style=snake_case
 # attribute-naming-style. If left empty, class attribute names will be checked
 # with the set naming style.
 
+#class-attribute-rgx=
+
+
 # EL RGX DE LOS ATRIBUTOS DE LAS CLASES FUE MODIFICADO
 # REGLA ORIGINAL: class-attribute-rgx=
 class-attribute-rgx=[a-z_][a-z0-9_]{1,30}$
+
 
 # Naming style matching correct class constant names.
 class-const-naming-style=UPPER_CASE
@@ -185,17 +192,16 @@ class-const-naming-style=UPPER_CASE
 # const-naming-style. If left empty, class constant names will be checked with
 # the set naming style.
 
-# EL RGX DE LAS CONSTANTES DE LAS CLASES FUE MODIFICADO
-# REGLA ORIGINAL: class-const-rgx=
-class-const-rgx=[A-Z_][A-Z0-9_]{1,30}$
-
-# Naming style matching correct class names.
-class-naming-style=PascalCase
+#class-const-rgx=
 
 # Regular expression matching correct class names. Overrides class-naming-
 # style. If left empty, class names will be checked with the set naming style.
-class-rgx=
+#class-rgx=
 
+
+# EL RGX DE LAS CONSTANTES DE LAS CLASES FUE MODIFICADO
+# REGLA ORIGINAL: class-const-rgx=
+class-const-rgx=[A-Z_][A-Z0-9_]{1,30}$
 
 # Naming style matching correct class names.
 
@@ -210,6 +216,7 @@ class-naming-style=UPPER_CASE
 # REGLA ORIGINAL: class-rgx=
 class-rgx=[A-Z_][A-Z0-9_]{1,30}$
 
+
 # Naming style matching correct constant names.
 const-naming-style=UPPER_CASE
 
@@ -217,9 +224,8 @@ const-naming-style=UPPER_CASE
 # style. If left empty, constant names will be checked with the set naming
 # style.
 
-# EL RGX DE LAS CONSTANTES FUE MODIFICADO
-# REGLA ORIGINAL: const-rgx=
-const-rgx=[A-Z_][A-Z0-9_]{1,30}$
+#const-rgx=
+
 
 # Minimum line length for functions/classes that require docstrings, shorter
 # ones are exempt.
@@ -227,9 +233,13 @@ docstring-min-length=-1
 
 # Naming style matching correct function names.
 
+#function-naming-style=snake_case
+
+
 # EL ESTILO DE LOS NOMBRES DE LAS FUNCIONES FUE MODIFICADO
 # REGLA ORIGINAL: function-naming-style=snake_case
 function-naming-style=PascalCase
+
 
 # Regular expression matching correct function names. Overrides function-
 # naming-style. If left empty, function names will be checked with the set
@@ -260,6 +270,8 @@ inlinevar-naming-style=any
 #inlinevar-rgx=
 
 # Naming style matching correct method names.
+#method-naming-style=snake_case
+
 
 # EL ESTILO DE LOS NOMBRES DE LOS MÉTODOS FUE MODIFICADO
 # REGLA ORIGINAL: method-naming-style=snake_case
@@ -271,6 +283,9 @@ method-naming-style=PascalCase
 #method-rgx=
 
 # Naming style matching correct module names.
+
+#module-naming-style=snake_case
+
 
 # EL ESTILO DE LOS NOMBRES DE LOS MÓDULOS FUE MODIFICADO
 # REGLA ORIGINAL: module-naming-style=snake_case
@@ -309,10 +324,12 @@ variable-naming-style=snake_case
 # naming-style. If left empty, variable names will be checked with the set
 # naming style.
 
+#variable-rgx=
+
+
 # EL RGX DE LAS VARIABLES FUE MODIFICADO
 # REGLA ORIGINAL: variable-rgx=
 variable-rgx=[a-z_][a-z0-9_]{1,30}$
-
 
 
 [CLASSES]
@@ -349,18 +366,19 @@ exclude-too-few-public-methods=
 ignored-parents=
 
 # Maximum number of arguments for function / method.
-max-args=5
+
+
 max-args=8
 
+# HEMOS CAMBIADO EL NÚMERO MÁXIMO DE ATRIBUTOS DE UNA CLASE DE 7 A 9.
+max-attributes=9
 
-# Maximum number of attributes for a class (see R0902).
-max-attributes=7
 
 # Maximum number of boolean expressions in an if statement (see R0916).
 max-bool-expr=5
 
-# Maximum number of branch for function / method body.
-max-branches=12
+# HEMOS CAMBIADO EL NÚMERO TOTAL DE RAMAS DE 12 A 70
+max-branches=70
 
 # Maximum number of locals for function / method body.
 max-locals=15
@@ -374,8 +392,8 @@ max-public-methods=20
 # Maximum number of return / yield for function / method body.
 max-returns=6
 
-# Maximum number of statements in function / method body.
-max-statements=50
+# HEMOS CAMBIADO EL NÚMERO MÁXIMO DE STATEMENTS DE 50 A 150
+max-statements=150
 
 # Minimum number of public methods for a class (see R0903).
 min-public-methods=2
@@ -398,11 +416,21 @@ ignore-long-lines=^\s*(# )?<?https?://\S+>?$
 # Number of spaces of indent required inside a hanging or continued line.
 indent-after-paren=4
 
-# String used as indentation unit.
+# String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
+# tab).
+
+indent-string='    '
+
+# Maximum number of characters on a single line.
+#max-line-length=100
+
+# Maximum number of lines in a module.
+#max-module-lines=1000
+
 
 # LA FORMA DE ABRIR Y CERRAR LOS STRING FUE MODIFICADA
 # REGLA ORIGINAL: '   '
-indent-string="    "
+#indent-string="    "
 
 # Maximum number of characters on a single line.
 
