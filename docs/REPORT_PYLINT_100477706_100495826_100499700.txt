@@ -1,0 +1,12 @@
+************* Module src.main.python.UC3MTravel.HotelManager
+src\main\python\UC3MTravel\HotelManager.py:56:8: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+src\main\python\UC3MTravel\HotelManager.py:275:16: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+src\main\python\UC3MTravel\HotelManager.py:425:8: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+src\main\python\UC3MTravel\HotelManager.py:446:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+src\main\python\UC3MTravel\HotelManager.py:449:12: E0702: Raising str while only classes or instances are allowed (raising-bad-type)
+************* Module src.main.python.UC3MTravel.HotelReservation
+src\main\python\UC3MTravel\HotelReservation.py:12:8: W0238: Unused private member `HOTEL_RESERVATION.__reservation_date` (unused-private-member)
+
+------------------------------------------------------------------
+Your code has been rated at 9.74/10 (previous run: 9.74/10, +0.00)
+
